@@ -3,11 +3,14 @@
 import numpy as np
 
 class Dataset:
-    def __init__(self, file_path, dictionary, target_name):
+    def __init__(self, file_path, dictionary, target_name, bias, X_use_target):
         self.data = self.parse_file(file_path)
         self.dictionary = dictionary
         self.target_name = target_name
-        self.t, self.X , self.X_dict = self.set_target(target_name, bias= True, X_use_target = False)
+        self.bias = bias
+        self.X_use_target = X_use_target
+
+        self.t, self.X , self.X_dict = self.set_target(target_name, bias= bias, X_use_target = X_use_target)
         self.X_train, self.t_train, self.X_test, self.t_test = self.train_test_split(self.t, self.X)
 
     def train_test_split(self, t, X, training_partial = 2/3):
