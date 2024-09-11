@@ -2,8 +2,10 @@
 #Organization: University of Florida
 import numpy as np
 class Regression:
-    def __init__(self, feature_num):
+    def __init__(self, feature_num, bias, X_use_target):
         self.feature_num = feature_num
+        self.bias = bias
+        self.X_use_target = X_use_target
         self.weights = self.initialize_weights(feature_num, init_type='random')
         
     def predict(self, transform_X, transform_t, X_row):
