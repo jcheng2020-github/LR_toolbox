@@ -3,8 +3,8 @@
 from regression import Regression
 import numpy as np
 class LS(Regression):
-    def __init__(self, feature_num):
-        super().__init__(feature_num)
+    def __init__(self, feature_num, bias, X_use_target):
+        super().__init__(feature_num, bias, X_use_target)
         
     def cross_validate_fit(self, transform_X, transform_t,  X_train, t_train, X_test, t_test, fold_num = 5, hyperparameters = [0.001, 0.01, 0.1, 1.0, 10.0, 100]):
         
